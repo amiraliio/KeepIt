@@ -10,6 +10,9 @@
   {{ with .Site.Params.baidu_verification }}<meta name=”baidu-site-verification” content="{{ . }}" />{{ end }}
   {{ if .PrevInSection }}<link rel="prev" href="{{.PrevInSection.Permalink}}" />{{end}}
   {{ if .NextInSection}}<link rel="next" href="{{ .NextInSection.Permalink }}" />{{end}}
+  {{ range .Site.Params.custom_css -}}
+    <link rel="stylesheet" href="{{ . | absURL }}">
+  {{- end }}
   <link rel="canonical" href="{{ .Permalink }}" />
   <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -42,7 +45,7 @@
   {{ if eq ( getenv "HUGO_ENV" ) "production" }}
           {{ with .Site.Params.cdn_url }}
               {{ $cdn_url = .}}
-           {{ end }}   
+           {{ end }}
   {{ end  }}
 {{ .Scratch.Set "cdn_url" $cdn_url }}
 

@@ -8,16 +8,22 @@
     {{ end }}
     {{ if or .Params.gravatar.Email (and .Site.Params.gravatar.Email (ne .Params.gravatar.Email false)) }}
     <div class="avatar">
-			<a href="/posts/">	<img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.gravatar.email }}?s=240&d=mp" alt="gravatar"> </a>
+			<a href="/posts/">	<img src="https://www.gravatar.com/avatar/{{ md5 .Site.Params.gravatar.email }}?s=440&d=mp" alt="gravatar"> </a>
 		</div>
 		{{ end }}
     {{ with .Site.Params.subtitle}}
-    <h2 class="description">
+    <h1 class="description">
        {{ . }}
-    </h2>
+    </h1>
     {{ end }}
+    {{ with .Site.Params.job}}
+    <h3>
+       {{ . }}
+    </h3>
+    {{ end }}
+    <p></p>
     <div class="social-links">
       {{ partial "social.html" . }}
-  
+
     </div>
 </div>

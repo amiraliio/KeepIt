@@ -1,7 +1,17 @@
 <nav class="navbar">
     <div class="container">
         <div class="navbar-header header-logo">
-        	<a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+        <a href="{{ .Site.BaseURL }}" style="text-decoration: none;">
+                <div class="newLogo">
+
+                    <span class="logo__arrow">➜&nbsp;</span>
+                    <span class="logo__tilde">~&nbsp;</span>
+                    <span class="logo__text">cd {{ .Site.Title }}/</span>
+                    <span class="logo__cursor"></span>
+
+                </div>
+            </a>
+
         </div>
         <div class="menu navbar-right">
                 {{ $currentPage := . }}
@@ -20,7 +30,7 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-     
+
           <div class="menu" id="mobile-menu">
                 {{ $currentPage := . }}
                 {{ range .Site.Menus.main }}
